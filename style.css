@@ -1,0 +1,167 @@
+*,::after,::before 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+body 
+{
+    background-color: #F1F5F8;
+}
+
+.container 
+{
+    width: 95%;
+    max-width: 1200px;
+    min-height: 100vh;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    gap: 50px;
+    padding: 70px 0;
+}
+
+
+.items 
+{
+    width: 100%;
+    min-width: 290px;
+    height: 200px;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.item__text 
+{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    height: 0;
+    background-color: hsl(0, 0%, 13%,70%);
+    color: #f4f4f4;
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+    font-size: 1.3rem;
+    pointer-events: none;
+}
+
+
+.items:hover .item__text
+{
+   height: 20%;
+   transition: ease .4s;
+}
+
+.items:nth-of-type(even){
+    background-color: blue;
+}
+
+.view-box 
+{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100vh;
+    background-color: hsl(0, 3%, 7%,90%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity ease .3s;
+    place-items: center;
+
+}
+
+.showViewBox
+{
+    display: grid;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity ease .3s;
+}
+
+.card 
+{
+    background-color: #ccc;
+    margin: 0 auto;
+    width: 80%;
+    min-width: 290px;
+    height: 80%;
+    border-radius: 5px;
+    display: grid;
+    overflow: hidden;
+}
+
+img 
+{
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.fa-close 
+{
+    position: absolute;
+    top:2vh;
+    right: 5vw;
+    display: block;
+    font-size: 2rem;
+    color:  hsl(0, 0%, 96%);
+    cursor: pointer;
+}
+
+.fa-close:hover 
+{
+    color:  hsl(0, 0%,80% ,96%);
+    transform:  scale(.9);
+}
+
+.hiddenViewBox 
+{
+    display: none;
+}
+
+@media (min-width: 710px){
+    .container 
+    {
+        place-items: center;
+        gap: 10px;
+        padding: 70px 0;
+        grid-template-columns: repeat(2,1fr);
+        grid-auto-rows: max-content;
+        grid-template-areas: 
+        "item1 item2"
+        "item3 item3"
+        "item4 item5";
+    }
+
+    .items.item-1 
+    {
+        grid-area: item1;
+    }
+    .items.item-2 
+    {
+        grid-area: item2;
+    }
+    .items.item-3 
+    {
+        grid-area: item3;
+    }
+    .items.item-4 
+    {
+        grid-area: item4;
+    }
+    .items.item-5
+    {
+        grid-area: item5;
+    }
+
+}
